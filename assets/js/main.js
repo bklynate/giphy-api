@@ -11,7 +11,7 @@ topics.forEach(function(item){
   $('#buttonBank').append(button)
 });
 
-$('button').on('click', function(){
+function displayTopicalGifs() {
   $('#gifBank').empty();
   var buttonData = $(this).data('name')
   var url = 'http://api.giphy.com/v1/gifs/search?q=' + buttonData + '&api_key=dc6zaTOxFJmzC'
@@ -27,18 +27,23 @@ $('button').on('click', function(){
       gifImgs.attr('src', item.images.original.url)
       $('#gifBank').append(gifImgs)
     })
-    // gifImgs = $('<img>');
-    // gifImgs.attr('src', res.)
   })
-});
+}
 
 $('#subBtn').on('click', function(event){
+  console.log()
   event.preventDefault();
   newBtn = $('<button>');
   newBtnVal = $('#added-button').val();
-  newBtn.attr('data-name', newBtn)
-  newBtn.addClass('btn btn-success');
-  newBtn.text(newBtnVal);
-  $('#buttonBank').append(newBtn);
+  if(topics.indexOf(newBtnVal) === -1){
+    console.log(newBtnVal)
+    topics.push(newBtnVal)
+    newBtn.attr('data-name', newBtnVal)
+    newBtn.addClass('btn btn-success');
+    newBtn.text(newBtnVal);
+    $('#buttonBank').append(newBtn);
+  }
   $('#added-button').val('');
 })
+
+$(document).on("click", ".btn-success", displayTopicalGifs);
