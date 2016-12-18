@@ -5,14 +5,14 @@ var topics = ['chappelle','desus and mero','medical marijuana', 'whiskey', 'sait
 
 topics.forEach(function(item){
   button = $('<button>');
-  button.addClass("btn btn-success");
-  button.attr("data-name", item)
+  button.addClass('btn btn-success');
+  button.attr('data-name', item)
   button.text(item)
   $('#buttonBank').append(button)
 });
 
 $('button').on('click', function(){
-  $("#gifBank").empty();
+  $('#gifBank').empty();
   var buttonData = $(this).data('name')
   var url = 'http://api.giphy.com/v1/gifs/search?q=' + buttonData + '&api_key=dc6zaTOxFJmzC'
   $.ajax({
@@ -23,7 +23,7 @@ $('button').on('click', function(){
     console.log(res);
     res.data.forEach(function(item){
       gifImgs = $('<img>');
-      gifImgs.addClass("img-responsive img-thumbnail")
+      gifImgs.addClass('img-responsive img-thumbnail')
       gifImgs.attr('src', item.images.original.url)
       $('#gifBank').append(gifImgs)
     })
@@ -31,3 +31,14 @@ $('button').on('click', function(){
     // gifImgs.attr('src', res.)
   })
 });
+
+$('#subBtn').on('click', function(event){
+  event.preventDefault();
+  newBtn = $('<button>');
+  newBtnVal = $('#added-button').val();
+  newBtn.attr('data-name', newBtn)
+  newBtn.addClass('btn btn-success');
+  newBtn.text(newBtnVal);
+  $('#buttonBank').append(newBtn);
+  $('#added-button').val('');
+})
