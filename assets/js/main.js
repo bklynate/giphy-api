@@ -17,7 +17,6 @@ function displayTopicalGifs() {
     method: 'GET'
   }).done(function(response){
     var res = response;
-
     res.data.forEach(function(item){
       gifImgs = $('<img>');
       gifImgs.addClass('img-responsive img-thumbnail')
@@ -26,7 +25,6 @@ function displayTopicalGifs() {
       $('#gifBank').append(gifImgs)
       gifImgs.on('click', function(){
         var self = $(this)
-
         if($(this).attr('src') === item.images.original.url){
           $(self).attr('src', item.images.original_still.url)
         } else {
