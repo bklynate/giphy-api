@@ -18,14 +18,23 @@ function displayTopicalGifs() {
   }).done(function(response){
     var res = response;
     res.data.forEach(function(item){
+      gifImgDiv = $('<div>');
       gifImgs = $('<img>');
-      gifImgs.addClass('img-responsive img-thumbnail')
-      gifImgs.attr('src', item.images.original_still.url)
-      $('#gifBank').append(gifImgs)
+      gifRating = $('<span>');
+      gifRating.addClass('label label-important');
+      gifImgDiv.addClass('relative');
+      gifImgDiv.css('display', 'inline');
+      gifRating.html(item.rating)
+      gifImgs.addClass('img-responsive img-thumbnail');
+      gifImgs.attr('src', item.images.original_still.url);
+      gifImgDiv.prepend(gifRating);
+      gifImgDiv.prepend(gifImgs);
+      // $('#gifBank').append(gifRating);
+      $('#gifBank').append(gifImgDiv);
       gifImgs.on('click', function(){
         var self = $(this)
         if($(this).attr('src') === item.images.original.url){
-          $(self).attr('src', item.images.original_still.url)
+          $(self).attr('src', item.images.original_still.url);
         } else {
           $(self).attr('src', item.images.original.url);
         }
