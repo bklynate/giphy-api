@@ -1,4 +1,4 @@
-#CSS TRIVIA GAME
+#Random .Gif Generator
 
 A .Gif generator - have fun laughing at internet .gifs
 
