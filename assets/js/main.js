@@ -1,8 +1,5 @@
 var topics = ['chappelle','desus and mero','medical marijuana', 'whiskey', 'saitama']
 
-// var url = 'http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC'
-// var url = 'http://api.giphy.com/v1/gifs/search?q=' + + '&api_key=dc6zaTOxFJmzC'
-
 topics.forEach(function(item){
   button = $('<button>');
   button.addClass('btn btn-success');
@@ -20,23 +17,31 @@ function displayTopicalGifs() {
     method: 'GET'
   }).done(function(response){
     var res = response;
-    console.log(res);
+
     res.data.forEach(function(item){
       gifImgs = $('<img>');
       gifImgs.addClass('img-responsive img-thumbnail')
-      gifImgs.attr('src', item.images.original.url)
+      // gifImgs.attr('src', item.images.original.url)
+      gifImgs.attr('src', item.images.original_still.url)
       $('#gifBank').append(gifImgs)
+      gifImgs.on('click', function(){
+        var self = $(this)
+
+        if($(this).attr('src') === item.images.original.url){
+          $(self).attr('src', item.images.original_still.url)
+        } else {
+          $(self).attr('src', item.images.original.url);
+        }
+      })
     })
   })
 }
 
 $('#subBtn').on('click', function(event){
-  console.log()
   event.preventDefault();
   newBtn = $('<button>');
   newBtnVal = $('#added-button').val();
   if(topics.indexOf(newBtnVal) === -1){
-    console.log(newBtnVal)
     topics.push(newBtnVal)
     newBtn.attr('data-name', newBtnVal)
     newBtn.addClass('btn btn-success');
