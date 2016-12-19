@@ -21,10 +21,10 @@ function displayTopicalGifs() {
       gifImgDiv = $('<div>');
       gifImgs = $('<img>');
       gifRating = $('<span>');
-      gifRating.addClass('label label-important');
+      gifRating.addClass('label label-important arrowed-in');
       gifImgDiv.addClass('relative');
       gifImgDiv.css('display', 'inline');
-      gifRating.html(item.rating)
+      gifRating.html('Rating: ' + item.rating)
       gifImgs.addClass('img-responsive img-thumbnail');
       gifImgs.attr('src', item.images.original_still.url);
       gifImgDiv.prepend(gifRating);
