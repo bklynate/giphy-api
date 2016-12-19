@@ -20,7 +20,6 @@ function displayTopicalGifs() {
     res.data.forEach(function(item){
       gifImgs = $('<img>');
       gifImgs.addClass('img-responsive img-thumbnail')
-      // gifImgs.attr('src', item.images.original.url)
       gifImgs.attr('src', item.images.original_still.url)
       $('#gifBank').append(gifImgs)
       gifImgs.on('click', function(){
