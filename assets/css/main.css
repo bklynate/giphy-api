@@ -71,23 +71,6 @@ img {
   margin-left: 9px
 }
 
-.label.arrowed-in:before {
-  display: inline-block;
-  content: "";
-  position: absolute;
-  left: -14px;
-  top: 0px;
-  border: 9px solid transparent;
-  border-width: 11px 7px;
-  border-right-color: #abbac3;
-}
-
-.label.arrowed-in:before {
-  border-color: #d15b47!important;
-  border-left-color: transparent!important;
-  left: -7px
-}
-
 .img-thumbnail {
   margin: 3px;
 }
