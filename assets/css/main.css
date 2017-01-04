@@ -87,3 +87,7 @@ img {
   border-left-color: transparent!important;
   left: -7px
 }
+
+.img-thumbnail {
+  margin: 3px;
+}
