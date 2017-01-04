@@ -26,7 +26,7 @@ function displayTopicalGifs() {
       gifImgDiv.addClass('relative');
       gifImgDiv.css('display', 'inline');
       gifRating.html('Rating: ' + item.rating);
-      gifImgs.addClass('img-responsive img-thumbnail');
+      gifImgs.addClass('img-responsive img-thumbnail img-padding');
       gifImgs.attr('src', item.images.original_still.url);
       gifImgDiv.prepend(gifRating);
       gifImgDiv.prepend(gifImgs);

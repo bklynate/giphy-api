@@ -72,5 +72,5 @@ img {
 }
 
 .img-thumbnail {
-  margin: 3px;
+  margin: 3px !important;
 }
