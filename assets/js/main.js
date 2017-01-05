@@ -47,7 +47,7 @@ $('#subBtn').on('click', function(event){
   event.preventDefault();
   newBtn = $('<button>');
   newBtnVal = $('#added-button').val();
-  if(topics.indexOf(newBtnVal) === -1){
+  if(topics.indexOf(newBtnVal) === -1 && newBtnVal > 0){
     topics.push(newBtnVal)
     newBtn.attr('data-name', newBtnVal)
     newBtn.addClass('btn btn-success');
